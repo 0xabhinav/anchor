@@ -221,7 +221,8 @@ class InstructionFormatter {
                     const variants = typeDef.type.variants;
                     const variant = Object.keys(data)[0];
                     const enumType = data[variant];
-                    const enumVariant = variants.find((v) => (0, camelcase_1.default)(v.name) === variant);
+                    const camelCaseVariant = (0, camelcase_1.default)(variant);
+                    const enumVariant = variants.find((v) => (0, camelcase_1.default)(v.name) === camelCaseVariant);
                     if (!enumVariant) {
                         throw new Error(`Unable to find variant \`${variant}\``);
                     }
@@ -229,7 +230,8 @@ class InstructionFormatter {
                     const namedFields = Object.keys(enumType)
                         .map((f) => {
                         const fieldData = enumType[f];
-                        const idlField = fields.find((v) => v.name === f);
+                        const camelCaseField = (0, camelcase_1.default)(f);
+                        const idlField = fields.find((v) => (0, camelcase_1.default)(v.name) === camelCaseField);
                         if (!idlField) {
                             throw new Error(`Unable to find field \`${f}\``);
                         }
