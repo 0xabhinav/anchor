@@ -1,0 +1,18 @@
+import { SplTokenSwapAccountsCoder } from "./accounts";
+import { SplTokenSwapEventsCoder } from "./events";
+import { SplTokenSwapInstructionCoder } from "./instructions";
+import { SplTokenSwapStateCoder } from "./state";
+import { SplTokenSwapTypesCoder } from "./types";
+/**
+ * Coder for SplTokenSwap
+ */
+export class SplTokenSwapCoder {
+    constructor(idl) {
+        this.accounts = new SplTokenSwapAccountsCoder(idl);
+        this.events = new SplTokenSwapEventsCoder(idl);
+        this.instruction = new SplTokenSwapInstructionCoder(idl);
+        this.state = new SplTokenSwapStateCoder(idl);
+        this.types = new SplTokenSwapTypesCoder(idl);
+    }
+}
+//# sourceMappingURL=index.js.map
